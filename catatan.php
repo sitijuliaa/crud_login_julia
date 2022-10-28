@@ -35,12 +35,22 @@ $result = mysqli_query($db, "SELECT * FROM catatan_perjalanan");
     </ul>
   </div>
 </div>
-<div class="container mt-3">
+<div class="container mt-3" style="width:500px;margin-left:0px;">
+<div class="card">
+  <div class="row">
+    <div class="row fw-bold card-body">
+      <form>`
     <div class="container mt-3">
         <div class="row fw-bold card">
             <div class="row g-2 align-items-center px-3 mb-3">
                 <div class="col-auto">
                 <span class="text-black">Urutkan Berdasarkan</span>
+                <select name="urut">
+                  <option values="tanggal">Tanggal</option>
+                  <option values="waktu">Waktu</option>
+                  <option values="lokasi">Lokasi</option>
+</select>
+<button type="submit">urutkan</button>
              </div>
                 <div class="col-auto">
                     <input type="date" class="form-control" style="width:200px" name="caper">
@@ -56,6 +66,7 @@ $result = mysqli_query($db, "SELECT * FROM catatan_perjalanan");
     <table class="table table-light table-hover table-borderless">
   <thead>
     <tr style="text-align:center;">
+      
       <th scope="col">Tanggal</th>
       <th scope="col">Waktu</th>
       <th scope="col">Lokasi</th>
@@ -73,8 +84,8 @@ $result = mysqli_query($db, "SELECT * FROM catatan_perjalanan");
       <td><?=$row['lokasi'];?></td>
       <td><?=$row['suhu_tubuh'];?></td>
       <td>
-        <a href="update.php?id=<?=$data['id'];?>" class="btn btn-primary">Update</a>
-        <a href="dalete.php?id=<?=$data['id'];?>" class="btn btn-primary">Delete</a>
+        <a href="update.php?idcp=<?=$data['idcp'];?>" class="btn btn-primary">Update</a>
+        <a href="delete.php?idcp=<?=$data['idcp'];?>" class="btn btn-danger">Delete</a>
       </td>
     </tr>
     </tbody>
